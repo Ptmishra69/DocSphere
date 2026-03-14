@@ -1,0 +1,227 @@
+.screen {
+  width: 100vw;
+  height: 100vh;
+  background: var(--color-dark);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Animated background */
+.bgMesh {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 60% 40% at 20% 30%, rgba(136, 201, 202, 0.08) 0%, transparent 60%),
+    radial-gradient(ellipse 50% 50% at 80% 70%, rgba(220, 252, 146, 0.05) 0%, transparent 60%),
+    radial-gradient(ellipse 70% 40% at 50% 100%, rgba(136, 201, 202, 0.06) 0%, transparent 60%);
+  pointer-events: none;
+}
+
+.bgGrid {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(136, 201, 202, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(136, 201, 202, 0.04) 1px, transparent 1px);
+  background-size: 60px 60px;
+  pointer-events: none;
+}
+
+/* Scanline */
+.scanline {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, rgba(136, 201, 202, 0.15), transparent);
+  animation: scanline 8s linear infinite;
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Top bar */
+.topBar {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 20px 32px;
+  position: relative;
+  z-index: 2;
+}
+
+.topLeft {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.clock {
+  font-size: 28px;
+  font-weight: 600;
+  color: var(--color-white);
+  letter-spacing: 2px;
+  font-variant-numeric: tabular-nums;
+}
+
+.dateStr {
+  font-size: 13px;
+  color: rgba(136, 201, 202, 0.7);
+  letter-spacing: 1px;
+}
+
+.topRight {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 4px;
+}
+
+.badge {
+  background: rgba(220, 252, 146, 0.15);
+  border: 1px solid rgba(220, 252, 146, 0.4);
+  color: var(--color-lime);
+  padding: 3px 12px;
+  border-radius: 20px;
+  font-size: 12px;
+  letter-spacing: 2px;
+}
+
+.location {
+  font-size: 12px;
+  color: rgba(136, 201, 202, 0.6);
+}
+
+/* Center content */
+.center {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 32px;
+  padding: 0 40px;
+  position: relative;
+  z-index: 2;
+  width: 100%;
+}
+
+.idleText {
+  text-align: center;
+  margin-top: 8px;
+}
+
+.mainText {
+  font-size: 36px;
+  font-weight: 500;
+  color: var(--color-white);
+  letter-spacing: -0.5px;
+  margin-bottom: 8px;
+}
+
+.subText {
+  font-size: 16px;
+  color: rgba(243, 247, 251, 0.55);
+  letter-spacing: 0.5px;
+}
+
+/* Language section */
+.langSection {
+  width: 100%;
+  max-width: 760px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+
+.langPrompt {
+  font-size: 14px;
+  color: rgba(136, 201, 202, 0.7);
+  letter-spacing: 0.5px;
+}
+
+.langGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+  width: 100%;
+}
+
+.langBtn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  padding: 18px 12px;
+  background: rgba(136, 201, 202, 0.08);
+  border: 1px solid rgba(136, 201, 202, 0.2);
+  border-radius: 16px;
+  color: var(--color-white);
+  transition: all 0.25s ease;
+  min-height: 80px;
+}
+
+.langBtn:hover,
+.langBtn:focus {
+  background: rgba(136, 201, 202, 0.16);
+  border-color: rgba(136, 201, 202, 0.5);
+  box-shadow: 0 0 20px rgba(136, 201, 202, 0.15);
+}
+
+.langLabel {
+  font-size: 22px;
+  font-weight: 500;
+}
+
+.langSub {
+  font-size: 11px;
+  color: rgba(243, 247, 251, 0.5);
+  letter-spacing: 1px;
+}
+
+/* Lang confirm */
+.langConfirm {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  color: var(--color-lime);
+  font-size: 20px;
+}
+
+.checkCircle {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  border: 3px solid var(--color-lime);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 36px;
+  color: var(--color-lime);
+}
+
+/* Bottom bar */
+.bottomBar {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  padding: 16px 32px;
+  border-top: 1px solid rgba(136, 201, 202, 0.1);
+  font-size: 12px;
+  color: rgba(243, 247, 251, 0.35);
+  letter-spacing: 0.5px;
+  z-index: 2;
+}
+
+.dot {
+  color: rgba(136, 201, 202, 0.3);
+}

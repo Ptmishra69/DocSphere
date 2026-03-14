@@ -1,0 +1,67 @@
+.logoWrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.logoMark {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.orb {
+  position: absolute;
+  width: 120%;
+  height: 120%;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(136, 201, 202, 0.18) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.logoText {
+  display: flex;
+  align-items: baseline;
+  position: relative;
+  z-index: 1;
+}
+
+.hindi {
+  font-family: 'AMSAakash', serif;
+  color: var(--color-teal);
+  line-height: 1;
+  letter-spacing: -1px;
+  /* Subtle text shadow for depth */
+  text-shadow:
+    0 0 30px rgba(136, 201, 202, 0.6),
+    0 2px 4px rgba(1, 37, 30, 0.5);
+}
+
+.english {
+  font-family: 'Aglest', cursive;
+  color: var(--color-lime);
+  line-height: 1;
+  letter-spacing: -1px;
+  text-shadow:
+    0 0 30px rgba(220, 252, 146, 0.5),
+    0 2px 4px rgba(1, 37, 30, 0.5);
+}
+
+.pulseRing {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  border: 1.5px solid rgba(136, 201, 202, 0.4);
+  pointer-events: none;
+}
+
+.tagline {
+  font-family: var(--font-body);
+  font-size: 13px;
+  letter-spacing: 3px;
+  color: rgba(136, 201, 202, 0.7);
+  text-transform: uppercase;
+}

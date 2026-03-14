@@ -1,0 +1,241 @@
+.screen {
+  width: 100vw;
+  height: 100vh;
+  background: var(--color-dark);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.bgMesh {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 50% 60% at 10% 50%, rgba(136, 201, 202, 0.06) 0%, transparent 60%),
+    radial-gradient(ellipse 40% 50% at 90% 30%, rgba(220, 252, 146, 0.04) 0%, transparent 60%);
+  pointer-events: none;
+}
+
+.bgGrid {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(136, 201, 202, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(136, 201, 202, 0.03) 1px, transparent 1px);
+  background-size: 60px 60px;
+  pointer-events: none;
+}
+
+.back {
+  position: absolute;
+  top: 24px;
+  left: 24px;
+  color: rgba(136, 201, 202, 0.7);
+  font-size: 14px;
+  letter-spacing: 0.5px;
+  padding: 8px 16px;
+  border: 1px solid rgba(136, 201, 202, 0.2);
+  border-radius: 20px;
+  transition: all 0.2s;
+  z-index: 10;
+}
+
+.back:hover { background: rgba(136, 201, 202, 0.08); }
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+  width: 100%;
+  max-width: 480px;
+  padding: 0 24px;
+  position: relative;
+  z-index: 2;
+}
+
+.card {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.title {
+  font-size: 26px;
+  font-weight: 500;
+  color: var(--color-white);
+  text-align: center;
+}
+
+.sub {
+  font-size: 14px;
+  color: rgba(243, 247, 251, 0.45);
+  text-align: center;
+  margin-top: -12px;
+}
+
+.dummyBadge {
+  background: rgba(220, 252, 146, 0.1);
+  border: 1px solid rgba(220, 252, 146, 0.3);
+  color: var(--color-lime);
+  padding: 6px 16px;
+  border-radius: 8px;
+  font-size: 13px;
+}
+
+/* Phone display */
+.phoneDisplay {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  background: rgba(136, 201, 202, 0.07);
+  border: 1px solid rgba(136, 201, 202, 0.2);
+  border-radius: 14px;
+  padding: 16px 24px;
+  width: 100%;
+  justify-content: center;
+}
+
+.prefix {
+  font-size: 20px;
+  color: rgba(136, 201, 202, 0.6);
+  font-weight: 500;
+}
+
+.phoneNum {
+  font-size: 28px;
+  color: var(--color-white);
+  letter-spacing: 3px;
+  font-variant-numeric: tabular-nums;
+  min-width: 200px;
+  text-align: center;
+}
+
+/* Numpad */
+.numpad {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  width: 100%;
+}
+
+.key {
+  padding: 18px 0;
+  background: rgba(243, 247, 251, 0.05);
+  border: 1px solid rgba(243, 247, 251, 0.1);
+  border-radius: 12px;
+  color: var(--color-white);
+  font-size: 22px;
+  font-weight: 400;
+  transition: all 0.15s ease;
+}
+
+.key:active { background: rgba(136, 201, 202, 0.15); }
+
+.confirm {
+  background: rgba(220, 252, 146, 0.12);
+  border-color: rgba(220, 252, 146, 0.35);
+  color: var(--color-lime);
+  font-size: 20px;
+  animation: pulse-glow 2.5s ease-in-out infinite;
+}
+
+.del {
+  color: rgba(243, 247, 251, 0.5);
+  font-size: 18px;
+}
+
+/* OTP boxes */
+.otpBoxes {
+  display: flex;
+  gap: 10px;
+}
+
+.otpBox {
+  width: 52px;
+  height: 60px;
+  border: 2px solid rgba(136, 201, 202, 0.2);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  color: var(--color-white);
+  font-weight: 600;
+  background: rgba(136, 201, 202, 0.06);
+  transition: all 0.2s;
+}
+
+.otpBox.filled {
+  border-color: rgba(136, 201, 202, 0.5);
+  background: rgba(136, 201, 202, 0.1);
+}
+
+.otpBox.active {
+  border-color: var(--color-lime);
+  box-shadow: 0 0 12px rgba(220, 252, 146, 0.3);
+}
+
+.voiceRow {
+  display: flex;
+  justify-content: center;
+}
+
+.resend {
+  font-size: 13px;
+  color: rgba(136, 201, 202, 0.6);
+  text-decoration: underline;
+  padding: 8px;
+}
+
+.error {
+  color: #ff6b6b;
+  font-size: 13px;
+  text-align: center;
+  background: rgba(255, 107, 107, 0.08);
+  border: 1px solid rgba(255, 107, 107, 0.2);
+  padding: 8px 20px;
+  border-radius: 8px;
+  width: 100%;
+}
+
+/* States */
+.verifyWrap, .successWrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  color: var(--color-teal);
+  font-size: 18px;
+}
+
+.spinRing {
+  width: 56px;
+  height: 56px;
+  border: 3px solid rgba(136, 201, 202, 0.2);
+  border-top-color: var(--color-teal);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+.successWrap { color: var(--color-lime); }
+.successCircle {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  border: 3px solid var(--color-lime);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 36px;
+}
+
+.successWrap span {
+  font-size: 13px;
+  color: rgba(243, 247, 251, 0.4);
+}
